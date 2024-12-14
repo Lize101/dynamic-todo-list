@@ -9,11 +9,13 @@
 <body>
     <div class="app">
         <h1>Dynamic Todo List</h1>
-        <input id="input" type="text" placeholder="Add to the list"/>
-        <button id="btn" type="button">Add</button>
+        <form id="form">
+            <input id="input" type="text" placeholder="Add to the list"/>
+            <button id="btn" type="submit">Add</button>
+        </form>
         <ul id="list">
         </ul>
     </div>
-    <script src="dist/app.js"></script>
+    <script src="dist/app.js" defer></script>
 </body>
 </html>
