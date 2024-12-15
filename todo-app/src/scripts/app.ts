@@ -16,4 +16,7 @@ form.addEventListener('submit', function(e: Event){
     list.appendChild(li);
     input.value = '';
 
+    li.addEventListener('click', function(){
+        li.classList.toggle('completed');
+    })
 })
