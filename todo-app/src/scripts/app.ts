@@ -16,7 +16,14 @@ form.addEventListener('submit', function(e: Event){
     list.appendChild(li);
     input.value = '';
 
-    li.addEventListener('click', function(){
-        li.classList.toggle('completed');
+    // li.addEventListener('click', function(){
+    //     li.classList.toggle('completed');
+    // })
+
+    list.addEventListener('click', function(e: Event){
+        const target = e.target as HTMLElement;
+       if(target.tagName === 'LI'){
+        target.classList.toggle('completed');
+       };
     })
 })
