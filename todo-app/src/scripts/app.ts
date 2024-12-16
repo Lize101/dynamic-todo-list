@@ -11,8 +11,16 @@ form.addEventListener('submit', function(e: Event){
     let text = input.value.trim();
     if(!text) return;
 
+    //Create li element
     const li = document.createElement('li');
     li.textContent = text;
+
+    //Create delete button element
+    const delBtn = document.createElement('button');
+    delBtn.textContent = "Remove";
+    delBtn.classList.add('delBtn');
+    li.appendChild(delBtn);
+
     list.appendChild(li);
     input.value = '';
 
@@ -22,8 +30,14 @@ form.addEventListener('submit', function(e: Event){
 
     list.addEventListener('click', function(e: Event){
         const target = e.target as HTMLElement;
-       if(target.tagName === 'LI'){
+
+       if (target.tagName === 'LI') {
         target.classList.toggle('completed');
-       };
+       } else if (target.tagName === 'BUTTON' && target.classList.contains('delBtn')) {
+        const liParent = target.parentElement;
+        if (liParent) {
+            liParent.remove();
+        } 
+       }
     })
 })
