@@ -1,13 +1,9 @@
-// const message: string = 'Hello You';
-// console.log(message);
-
 const form = document.getElementById('form') as HTMLFormElement;
 const input = document.getElementById('input') as HTMLInputElement;
-// const btn = document.getElementById('btn');
 const list = document.getElementById('list') as HTMLUListElement;
 
-form.addEventListener('submit', function(e: Event){
-    e.preventDefault();
+function handleFormSubmit(e: Event): void {
+  e.preventDefault();
     let text = input.value.trim();
     if(!text) return;
 
@@ -23,13 +19,10 @@ form.addEventListener('submit', function(e: Event){
 
     list.appendChild(li);
     input.value = '';
+}
 
-    // li.addEventListener('click', function(){
-    //     li.classList.toggle('completed');
-    // })
-
-    list.addEventListener('click', function(e: Event){
-        const target = e.target as HTMLElement;
+  function handleLiClicks(e: Event): void {
+    const target = e.target as HTMLElement;
 
        if (target.tagName === 'LI') {
         target.classList.toggle('completed');
@@ -38,6 +31,8 @@ form.addEventListener('submit', function(e: Event){
         if (liParent) {
             liParent.remove();
         } 
-       }
-    })
-})
+      }
+  }
+   
+  form.addEventListener('submit', handleFormSubmit)
+  list.addEventListener('click', handleLiClicks)
