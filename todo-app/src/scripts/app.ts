@@ -1,3 +1,5 @@
+import { checkInput } from "./utils";
+
 //Variables for form, input and list
 const form = document.getElementById('form') as HTMLFormElement;
 const input = document.getElementById('input') as HTMLInputElement;
@@ -6,8 +8,8 @@ const list = document.getElementById('list') as HTMLUListElement;
 //Function to handle form submissions
 function handleFormSubmit(e: Event): void {
   e.preventDefault(); //Prevent default form submission behaviour
-    let text = input.value.trim(); //Remove white space from beginning and end of input
-    if(!text) return; //Exit the function if the input is empty
+    let text = input.value; //Remove white space from beginning and end of input
+    if (!checkInput(text)) return;
 
     //Create li element
     const li = document.createElement('li');
