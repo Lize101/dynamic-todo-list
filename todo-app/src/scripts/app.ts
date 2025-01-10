@@ -1,4 +1,4 @@
-import { checkInput } from "./utils";
+import { checkInput, createItems } from "./utils";
 
 //Variables for form, input and list
 const form = document.getElementById('form') as HTMLFormElement;
@@ -11,15 +11,7 @@ function handleFormSubmit(e: Event): void {
     let text = input.value; //Remove white space from beginning and end of input
     if (!checkInput(text)) return;
 
-    //Create li element
-    const li = document.createElement('li');
-    li.textContent = text;
-
-    //Create delete button element
-    const delBtn = document.createElement('button');
-    delBtn.textContent = "Remove";
-    delBtn.classList.add('delBtn');
-    li.appendChild(delBtn);
+    const li = createItems(text);
 
     list.appendChild(li);
     input.value = ''; //Clear input field after adding each task
